@@ -7,8 +7,12 @@
 Change on flaskAlert.py
 =======================
 * botToken
-* chatID 
+* chatID (without -)
   
 Running
-======
+=======
 * python flaskAlert.py
+
+Running on docker
+=================
+* docker container run -d -e bottoken="telegramBotToken" -e chatid="telegramChatID" alertmanager-webhook-telegram:latest
