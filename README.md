@@ -9,6 +9,15 @@ Change on flaskAlert.py
 * botToken
 * chatID (without -)
   
+Alertmanager configuration example
+==================================
+
+		receivers:
+		- name: 'telegram-webhook'
+		  webhook_configs:
+		  - url: http://ipFlaskAlert:9119/alert
+		    send_resolved: true
+
 Running
 =======
 * python flaskAlert.py
