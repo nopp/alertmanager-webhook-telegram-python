@@ -24,4 +24,4 @@ Running
 
 Running on docker
 =================
-* docker container run -d -e bottoken="telegramBotToken" -e chatid="telegramChatID" -p 9119:9119 alertmanager-webhook-telegram:latest
+* docker container run -d -e bottoken="telegramBotToken" -e chatid="telegramChatID" -p 9119:9119 nopp/alertmanager-webhook-telegram:latest
