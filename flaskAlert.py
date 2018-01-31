@@ -37,4 +37,4 @@ Instance: """+alert['labels']['instance']+"""("""+alert['labels']['name']+""")
 
 if __name__ == '__main__':
     logging.basicConfig(filename='flaskAlert.log',level=logging.INFO)
-    app.run(host='0.0.0.0', port= 8090)
+    app.run(host='0.0.0.0', port=9119)
