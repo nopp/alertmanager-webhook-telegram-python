@@ -17,6 +17,12 @@ Alertmanager configuration example
 		  webhook_configs:
 		  - url: http://ipFlaskAlert:9119/alert
 		    send_resolved: true
+		    
+One way to get the chat ID
+==========================
+1) Add bot on channel
+2) Send message on this channel with @botname
+3) Access access the link https://api.telegram.org/botXXX:YYYY/getUpdates (xxx:yyyy botID)
 
 Running
 =======
