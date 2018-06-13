@@ -34,7 +34,7 @@ Instance: """+alert['labels']['instance']+"""
 """+alert['annotations']['description']+"""
 """
             bot = telegram.Bot(token="botToken")
-            bot.sendMessage(chat_id="-chatID",text=message)                
+            bot.sendMessage(chat_id=chatID,text=message)                
     except:
 
         logger = logging.getLogger(__name__)
