@@ -1,10 +1,13 @@
-from flask import Flask
-from flask import request
 import telegram
 import logging
+from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 app.secret_key = 'aYT>.L$kk2h>!'
+
+bot = telegram.Bot(token="botToken")
+chatID = "-chatID"
 
 @app.route('/alert', methods = ['POST'])
 def postAlertmanager():
@@ -15,23 +18,28 @@ def postAlertmanager():
 
         for alert in content['alerts']:
 
-            message = """
-Status """+alert['status']+"""
-    
-Alertname: """+alert['labels']['alertname']+"""
+            if 'name' in alert['labels']:
 
+                message = """
+Status """+alert['status']+"""   
+Alertname: """+alert['labels']['alertname']+"""
 Instance: """+alert['labels']['instance']+"""("""+alert['labels']['name']+""")
-    
+"""+alert['annotations']['description']+"""
+"""
+            else:
+                message = """
+Status """+alert['status']+"""
+Alertname: """+alert['labels']['alertname']+"""
+Instance: """+alert['labels']['instance']+"""
 """+alert['annotations']['description']+"""
 """
             bot = telegram.Bot(token="botToken")
-            bot.sendMessage(chat_id="-chatID",text=message)
+            bot.sendMessage(chat_id="-chatID",text=message)                
     except:
 
         logger = logging.getLogger(__name__)
         logger.info(content)
-        bot = telegram.Bot(token="botToken")
-        bot.sendMessage(chat_id="-chatID",text="Falhou o envio via Flask para o Telegram")
+        bot.sendMessage(chat_id=chatID,text="Failed to send via Flask to Telegram!")
 
     return ""
 
