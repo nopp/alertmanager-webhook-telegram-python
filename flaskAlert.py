@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = 'aYT>.L$kk2h>!'
 
 bot = telegram.Bot(token="botToken")
-chatID = "-chatID"
+chatID = "-xchatIDx"
 
 @app.route('/alert', methods = ['POST'])
 def postAlertmanager():
