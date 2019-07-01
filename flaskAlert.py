@@ -1,5 +1,6 @@
 import telegram
 import logging
+import json
 from flask import Flask
 from flask import request
 
@@ -12,7 +13,7 @@ chatID = "-xchatIDx"
 @app.route('/alert', methods = ['POST'])
 def postAlertmanager():
 
-    content = request.get_json()
+    content = json.loads(request.get_data())
 
     try:
 
@@ -35,10 +36,13 @@ Instance: """+alert['labels']['instance']+"""
 """
             bot.sendMessage(chat_id=chatID,text=message)                
     except:
-
-        logger = logging.getLogger(__name__)
-        logger.info(content)
         bot.sendMessage(chat_id=chatID,text="Failed to send via Flask to Telegram!")
+
+    return content['alerts'], 200
+
+if __name__ == '__main__':
+    logging.basicConfig(filename='flaskAlert.log',level=logging.INFO)
+    app.run(host='0.0.0.0', port=9119)
 
     return ""
 
