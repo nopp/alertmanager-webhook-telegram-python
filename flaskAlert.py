@@ -34,17 +34,11 @@ Alertname: """+alert['labels']['alertname']+"""
 Instance: """+alert['labels']['instance']+"""
 """+alert['annotations']['description']+"""
 """
-            bot.sendMessage(chat_id=chatID,text=message)                
+            bot.sendMessage(chat_id=chatID,text=message)
+            return "Alert OK", 200
     except:
         bot.sendMessage(chat_id=chatID,text="Failed to send via Flask to Telegram!")
-
-    return content['alerts'], 200
-
-if __name__ == '__main__':
-    logging.basicConfig(filename='flaskAlert.log',level=logging.INFO)
-    app.run(host='0.0.0.0', port=9119)
-
-    return ""
+        return "Alert nOK", 200
 
 if __name__ == '__main__':
     logging.basicConfig(filename='flaskAlert.log',level=logging.INFO)
