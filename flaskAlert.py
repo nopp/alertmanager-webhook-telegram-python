@@ -19,7 +19,7 @@ chatID = "-xchatIDx"
 def postAlertmanager():
 
     content = json.loads(request.get_data())
-
+    print(content)
     try:
 
         for alert in content['alerts']:
