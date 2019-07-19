@@ -19,7 +19,8 @@ chatID = "-xchatIDx"
 def postAlertmanager():
 
     content = json.loads(request.get_data())
-    print(content)
+    with open("Output.txt", "w") as text_file:
+        text_file.write("{0}".format(content))
     try:
 
         for alert in content['alerts']:
@@ -46,5 +47,5 @@ Instance: """+alert['labels']['instance']+"""
         return "Alert nOK", 200
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='flaskAlert.log',level=logging.DEBUG)
+    logging.basicConfig(filename='flaskAlert.log',level=logging.INFO)
     app.run(host='0.0.0.0', port=9119)
