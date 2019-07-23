@@ -3,10 +3,15 @@ import logging
 import json
 from flask import Flask
 from flask import request
+from flask_basicauth import BasicAuth
 
 app = Flask(__name__)
 app.secret_key = 'aYT>.L$kk2h>!'
+app.config['BASIC_AUTH_USERNAME'] = 'XXXUSERNAME'
+app.config['BASIC_AUTH_PASSWORD'] = 'XXXPASSWORD'
 
+basic_auth = BasicAuth(app)
+app.config['BASIC_AUTH_FORCE'] = True
 bot = telegram.Bot(token="botToken")
 chatID = "-xchatIDx"
 
@@ -14,7 +19,8 @@ chatID = "-xchatIDx"
 def postAlertmanager():
 
     content = json.loads(request.get_data())
-
+    with open("Output.txt", "w") as text_file:
+        text_file.write("{0}".format(content))
     try:
 
         for alert in content['alerts']:
@@ -22,7 +28,7 @@ def postAlertmanager():
             if 'name' in alert['labels']:
 
                 message = """
-Status """+alert['status']+"""   
+Status """+alert['status']+"""
 Alertname: """+alert['labels']['alertname']+"""
 Instance: """+alert['labels']['instance']+"""("""+alert['labels']['name']+""")
 """+alert['annotations']['description']+"""
