@@ -23,26 +23,21 @@ def postAlertmanager():
         text_file.write("{0}".format(content))
     try:
         for alert in content['alerts']:
-            message = """
-                    Status %s \n
-                    Alertname %s \n
-            """ % (
-                alert['status'],
-                alert['labels']['alertname']
-                )
+            message = """Status: """+alert['status']+""" \n"""
+            message += """Alertname: """+alert['labels']['alertname']+""" \n"""
 
             if alert['status'] == "firing":
-                message += alert['startsAt']
+                message += """Detected: """+alert['startsAt']+""" \n"""
 
             if alert['status'] == "resolved":
-                message += alert['endsAt']
+                message += """Resolved: """+alert['endsAt']+""" \n"""
 
             if 'name' in alert['labels']:
-                message += """Instance: """+alert['labels']['instance']+"""("""+alert['labels']['name']+""")"""
+                message += """Instance: """+alert['labels']['instance']+"""("""+alert['labels']['name']+""") \n"""
             else:
-                message += """Instance: """+alert['labels']['instance']+""""""
+                message += """Instance: """+alert['labels']['instance']+""" \n"""
 
-            message += alert['annotations']['description']
+            message += """\n\n"""+alert['annotations']['description']+""""""
 
             bot.sendMessage(chat_id=chatID, text=message)
             return "Alert OK", 200
