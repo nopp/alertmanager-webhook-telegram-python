@@ -17,9 +17,10 @@ Alertmanager configuration example
 		  webhook_configs:
 		  - url: http://ipFlaskAlert:9119/alert
 		    send_resolved: true
-		    basic_auth:
-		      username: username
-		      password: password
+		    http_config:
+		      basic_auth:
+		        username: 'admin'
+			password: 'password'
 
 One way to get the chat ID
 ==========================
