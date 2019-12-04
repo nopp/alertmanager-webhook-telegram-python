@@ -34,7 +34,13 @@ Running
 
 Running on docker
 =================
-* docker run -d --name telegram-bot -e "bottoken=telegramBotToken" -e "chatid=telegramChatID" -e "username=<username>" -e "password=<password>" -p 9119:9119 nopp/alertmanager-webhook-telegram:latest
+    
+    docker run -d --name telegram-bot \
+    	-e "bottoken=telegramBotToken" \
+    	-e "chatid=telegramChatID" \
+    	-e "username=<username>" \
+    	-e "password=<password>" \
+    	-p 9119:9119 nopp/alertmanager-webhook-telegram:latest
 
 > make sure set proper username and password when you exposing your app on internet
 
