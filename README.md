@@ -12,15 +12,15 @@ Change on flaskAlert.py
 Alertmanager configuration example
 ==================================
 
-		receivers:
-		- name: 'telegram-webhook'
-		  webhook_configs:
-		  - url: http://ipFlaskAlert:9119/alert
-		    send_resolved: true
-		    http_config:
-		      basic_auth:
-		        username: 'admin'
-			password: 'password'
+                receivers:
+                - name: 'telegram-webhook'
+                  webhook_configs:
+                  - url: http://ipFlaskAlert:9119/alert
+                    send_resolved: true
+                    http_config:
+                      basic_auth:
+                        username: 'admin'
+                        password: 'password'
 
 One way to get the chat ID
 ==========================
