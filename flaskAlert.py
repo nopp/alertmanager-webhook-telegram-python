@@ -13,7 +13,7 @@ app.config['BASIC_AUTH_PASSWORD'] = 'XXXPASSWORD'
 basic_auth = BasicAuth(app)
 app.config['BASIC_AUTH_FORCE'] = True
 bot = telegram.Bot(token="botToken")
-chatID = "-xchatIDx"
+chatID = "xchatIDx"
 
 @app.route('/alert', methods = ['POST'])
 def postAlertmanager():
