@@ -7,7 +7,7 @@
 Change on flaskAlert.py
 =======================
 * botToken
-* chatID (without -)
+* chatID
 
 Alertmanager configuration example
 ==================================
