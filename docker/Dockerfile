@@ -7,7 +7,7 @@ RUN apk update \
 		&& rm -rf /var/cache/apk/* \
 		&& wget https://github.com/nopp/alertmanager-webhook-telegram/archive/master.zip \
 		&& unzip master.zip \
-		&& pip install -r alertmanager-webhook-telegram/requirements.txt
+		&& pip install -r alertmanager-webhook-telegram-master/requirements.txt
 
 WORKDIR /alertmanager-webhook-telegram
 
