@@ -28,6 +28,12 @@ One way to get the chat ID
 2) Send message on this channel with @botname
 3) Access access the link https://api.telegram.org/botXXX:YYYY/getUpdates (xxx:yyyy botID)
 
+Another way to get the chat ID
+==============================
+1) Access https://web.telegram.org/
+2) Click to specific chat to the left
+3) At the url, you can get the chat ID
+
 Running
 =======
 * python flaskAlert.py
