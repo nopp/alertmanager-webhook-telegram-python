@@ -7,17 +7,12 @@ RUN apk update \
 		&& rm -rf /var/cache/apk/* \
 		&& wget https://github.com/nopp/alertmanager-webhook-telegram/archive/master.zip \
 		&& unzip master.zip \
-		&& pip install -r alertmanager-webhook-telegram-master/requirements.txt
+		&& pip install -r alertmanager-webhook-telegram-master/requirements.txt 
 
-WORKDIR /alertmanager-webhook-telegram
+WORKDIR alertmanager-webhook-telegram-master
 
-COPY run.sh /alertmanager-webhook-telegram
-
-COPY flaskAlert.py /alertmanager-webhook-telegram
-
-RUN chmod +x /alertmanager-webhook-telegram/run.sh
-
-RUN chmod +x /alertmanager-webhook-telegram/flaskAlert.py
+RUN mv docker/run.sh run.sh \
+	&& chmod +x run.sh
 
 EXPOSE 9119
 
