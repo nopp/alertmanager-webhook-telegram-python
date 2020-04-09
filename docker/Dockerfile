@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-LABEL maintainer "Carlos Augusto Malucelli <malucellicarlos@gmail.com>"
+LABEL maintainer "Carlos Augusto Malucelli <camalucelli@gmail.com>"
 
 WORKDIR /alertmanager-webhook-telegram
 
