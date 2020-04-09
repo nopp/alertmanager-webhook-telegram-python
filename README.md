@@ -40,13 +40,19 @@ Running
 
 Running on docker
 =================
-    
+    mkdir nopp-alertmanager-webhook-telegram
+    cd nopp-alertmanager-webhook-telegram
+    wget https://raw.githubusercontent.com/nopp/alertmanager-webhook-telegram/master/docker/Dockerfile 
+    wget https://raw.githubusercontent.com/nopp/alertmanager-webhook-telegram/master/docker/run.sh
+    wget https://raw.githubusercontent.com/longsube/alertmanager-webhook-telegram/master/flaskAlert.py
+    docker build --tag alertmanager-webhook-telegram:1.0 .
+
     docker run -d --name telegram-bot \
     	-e "bottoken=telegramBotToken" \
     	-e "chatid=telegramChatID" \
     	-e "username=<username>" \
     	-e "password=<password>" \
-    	-p 9119:9119 nopp/alertmanager-webhook-telegram:latest
+    	-p 9119:9119 alertmanager-webhook-telegram:1.0
 
 > make sure set proper username and password when you exposing your app on internet
 

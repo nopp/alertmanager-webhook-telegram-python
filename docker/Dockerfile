@@ -13,7 +13,11 @@ WORKDIR /alertmanager-webhook-telegram
 
 COPY run.sh /alertmanager-webhook-telegram
 
+COPY flaskAlert.py /alertmanager-webhook-telegram
+
 RUN chmod +x /alertmanager-webhook-telegram/run.sh
+
+RUN chmod +x /alertmanager-webhook-telegram/flaskAlert.py
 
 EXPOSE 9119
 
