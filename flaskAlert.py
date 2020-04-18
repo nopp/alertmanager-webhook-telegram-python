@@ -42,7 +42,6 @@ def postAlertmanager():
             elif alert['status'] == "firing":
                 correctDate = parser.parse(alert['startsAt']).strftime('%Y-%m-%d %H:%M:%S')
                 message += "Started: "+correctDate
-
             bot.sendMessage(chat_id=chatID, text=message)
             return "Alert OK", 200
     except Exception as error:       
