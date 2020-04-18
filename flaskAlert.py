@@ -5,14 +5,18 @@ from flask import request
 from flask_basicauth import BasicAuth
 
 app = Flask(__name__)
-app.secret_key = 'aYT>.L$kk2h>!'
+app.secret_key = 'lAlAlA123'
 basic_auth = BasicAuth(app)
 
+# Yes need to have -, change it!
 chatID = "-xchatIDx"
+
+# Authentication conf, change it!
 app.config['BASIC_AUTH_FORCE'] = True
 app.config['BASIC_AUTH_USERNAME'] = 'XXXUSERNAME'
 app.config['BASIC_AUTH_PASSWORD'] = 'XXXPASSWORD'
 
+# Bot token, change it!
 bot = telegram.Bot(token="botToken")
 
 @app.route('/alert', methods = ['POST'])
