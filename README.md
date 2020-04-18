@@ -2,6 +2,8 @@
 
 GO Version (https://github.com/nopp/alertmanager-webhook-telegram-go) coming soon.
 
+Python version 3
+
 ## INSTALL
 
 * pip install -r requirements.txt
