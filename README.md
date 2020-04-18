@@ -11,8 +11,8 @@ Change on flaskAlert.py
 
 If you'll use with authentication, change too
 
-* BASIC_AUTH_USERNAME
-* BASIC_AUTH_PASSWORD
+* XXXUSERNAME
+* XXXPASSWORD
 
 Disabling authentication
 ========================
