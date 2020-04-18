@@ -7,7 +7,16 @@
 Change on flaskAlert.py
 =======================
 * botToken
-* chatID (yes, need put with -)
+* chatID
+
+If you'll use with authentication, change too
+
+* BASIC_AUTH_USERNAME
+* BASIC_AUTH_PASSWORD
+
+Disabling authentication
+========================
+On flaskAlert.py change app.config['BASIC_AUTH_FORCE'] = True to app.config['BASIC_AUTH_FORCE'] = False
 
 Alertmanager configuration example
 ==================================
