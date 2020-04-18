@@ -1,4 +1,6 @@
-# Alertmanager webhook for Telegram using Flask
+# Alertmanager webhook for Telegram (Python Version)
+
+GO Version (https://github.com/nopp/alertmanager-webhook-telegram-go) coming soon.
 
 ## INSTALL
 
