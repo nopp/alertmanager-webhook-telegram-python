@@ -1,4 +1,4 @@
-import telegram, json
+import telegram, json, logging
 from dateutil import parser
 from flask import Flask
 from flask import request
@@ -21,7 +21,7 @@ bot = telegram.Bot(token="botToken")
 
 @app.route('/alert', methods = ['POST'])
 def postAlertmanager():
-    
+
     try:
         content = json.loads(request.get_data())
         for alert in content['alerts']:
@@ -45,10 +45,11 @@ def postAlertmanager():
 
             bot.sendMessage(chat_id=chatID, text=message)
             return "Alert OK", 200
-    except:
-        bot.sendMessage(chat_id=chatID, text="Error to read content ---->"+str(request.get_data()))
+    except Exception as error:       
+        bot.sendMessage(chat_id=chatID, text="Error to read json: "+str(error))
+        app.logger.info("\t%s",error)
         return "Alert fail", 200
 
-
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     app.run(host='0.0.0.0', port=9119)
