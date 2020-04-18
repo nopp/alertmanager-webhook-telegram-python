@@ -47,5 +47,5 @@ def postAlertmanager():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='flaskAlert.log', level=logging.INFO)
-    app.run(host='0.0.0.0', port=9119)
+    logging.basicConfig(filename='./flaskAlert.log', level=logging.INFO)
+    app.run(host='0.0.0.0', port=9119, debug=true)
