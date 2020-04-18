@@ -7,32 +7,26 @@
 Change on flaskAlert.py
 =======================
 * botToken
-* chatID
+* chatID (yes, need put with -)
 
 Alertmanager configuration example
 ==================================
 
-                receivers:
-                - name: 'telegram-webhook'
-                  webhook_configs:
-                  - url: http://ipFlaskAlert:9119/alert
-                    send_resolved: true
-                    http_config:
-                      basic_auth:
-                        username: 'admin'
-                        password: 'password'
+	receivers:
+	- name: 'telegram-webhook'
+	  webhook_configs:
+	  - url: http://ipFlaskAlert:9119/alert
+	    send_resolved: true
+	    http_config:
+	      basic_auth:
+		username: 'admin'
+		password: 'password'
 
 One way to get the chat ID
 ==========================
-1) Add bot on channel
-2) Send message on this channel with @botname
-3) Access access the link https://api.telegram.org/botXXX:YYYY/getUpdates (xxx:yyyy botID)
-
-Another way to get the chat ID
-==============================
 1) Access https://web.telegram.org/
 2) Click to specific chat to the left
-3) At the url, you can get the chat ID
+3) At the url, you can get the chat ID(Ex: https://web.telegram.org/#/im?p=g1234567, so the chatID is 1234567)
 
 Running
 =======
@@ -50,8 +44,6 @@ Running on docker
     	-e "username=<username>" \
     	-e "password=<password>" \
     	-p 9119:9119 alertmanager-webhook-telegram:1.0
-
-> make sure set proper username and password when you exposing your app on internet
 
 Example to test
 ===============
