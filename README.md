@@ -1,6 +1,6 @@
 # Alertmanager webhook for Telegram (Python Version)
 
-GO Version (https://github.com/nopp/alertmanager-webhook-telegram-go).
+GO Version (https://github.com/nopp/alertmanager-webhook-telegram-go)
 
 Python version 3
 
