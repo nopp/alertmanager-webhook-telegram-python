@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  telegram-bot:
+    image: alertmanager-webhook-telegram:1.0
+    ports:
+    - 9119:9119/tcp
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      bottoken: xxx
+      chatid: 3xxxx
+      username: xxx
+      password: 123456
