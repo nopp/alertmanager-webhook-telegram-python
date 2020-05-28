@@ -2,3 +2,4 @@ flask
 python-telegram-bot
 Flask-BasicAuth
 gunicorn
+python-dateutil==2.6.1
