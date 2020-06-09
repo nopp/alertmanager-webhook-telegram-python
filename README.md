@@ -1,8 +1,6 @@
 # Alertmanager webhook for Telegram (Python Version)
 
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/nopp/alertmanager-webhook-telegram-python.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/nopp/alertmanager-webhook-telegram-python/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/nopp/alertmanager-webhook-telegram-python.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/nopp/alertmanager-webhook-telegram-python/context:python)
-
+![Code scanning - action](https://github.com/nopp/alertmanager-webhook-telegram-python/workflows/Code%20scanning%20-%20action/badge.svg)
 GO Version (https://github.com/nopp/alertmanager-webhook-telegram-go)
 
 Python version 3
