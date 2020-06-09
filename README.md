@@ -1,6 +1,7 @@
 # Alertmanager webhook for Telegram (Python Version)
 
 ![Code scanning - action](https://github.com/nopp/alertmanager-webhook-telegram-python/workflows/Code%20scanning%20-%20action/badge.svg)
+
 GO Version (https://github.com/nopp/alertmanager-webhook-telegram-go)
 
 Python version 3
