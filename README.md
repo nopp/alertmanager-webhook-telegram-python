@@ -1,5 +1,6 @@
 # Alertmanager webhook for Telegram (Python Version)
 
+![Docker Image CI](https://github.com/nopp/alertmanager-webhook-telegram-python/workflows/Docker%20Image%20CI/badge.svg)
 ![Code scanning - action](https://github.com/nopp/alertmanager-webhook-telegram-python/workflows/Code%20scanning%20-%20action/badge.svg)
 
 GO Version (https://github.com/nopp/alertmanager-webhook-telegram-go)
