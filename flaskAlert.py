@@ -44,8 +44,20 @@ def postAlertmanager():
                 message += "Started: "+correctDate
             bot.sendMessage(chat_id=chatID, text=message)
             return "Alert OK", 200
+    except RetryAfter:
+        sleep(30)
+        bot.sendMessage(chat_id=chatID, text=message)
+        return "Alert OK", 200
+    except TimedOut as e:
+        sleep(60)
+        bot.sendMessage(chat_id=chatID, text=message)
+        return "Alert OK", 200
+    except NetworkError as e:
+        sleep(60)
+        bot.sendMessage(chat_id=chatID, text=message)
+        return "Alert OK", 200
     except Exception as error:       
-        bot.sendMessage(chat_id=chatID, text="Error to read json: "+str(error))
+        bot.sendMessage(chat_id=chatID, text="Error: "+str(error))
         app.logger.info("\t%s",error)
         return "Alert fail", 200
 
