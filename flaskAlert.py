@@ -5,7 +5,7 @@ from flask import request
 from flask_basicauth import BasicAuth
 
 app = Flask(__name__)
-app.secret_key = 'lAlAlA123'
+app.secret_key = 'changeKeyHeere'
 basic_auth = BasicAuth(app)
 
 # Yes need to have -, change it!
