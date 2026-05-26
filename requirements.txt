@@ -1,4 +1,9 @@
-flask
-python-telegram-bot
-Flask-BasicAuth
-gunicorn
+flask>=2.3,<3
+Flask-BasicAuth>=0.2
+gunicorn>=21
+python-dateutil>=2.8
+requests>=2.31
+
+# dev / test
+pytest>=8
+pytest-flask>=1.3

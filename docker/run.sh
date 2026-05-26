@@ -1,34 +1,25 @@
 #!/bin/bash
+set -euo pipefail
 
-if [ "x" == "x$username" ]; then
-  echo "warning: username is not set"
-else
-  echo "admin user is $username"
-fi
+require_var() {
+  local var="$1"
+  if [ -z "${!var:-}" ]; then
+    echo "ERROR: required env var '$var' is not set" >&2
+    exit 1
+  fi
+}
 
-if [ "x" == "x$password" ]; then
-  echo "warning: password is not set"
-else
-  echo "password is set (not visible)"
-fi
+warn_var() {
+  local var="$1"
+  if [ -z "${!var:-}" ]; then
+    echo "WARNING: '$var' is not set — basic auth may be disabled or misconfigured"
+  fi
+}
 
-if [ "x" == "x$bottoken" ]; then
-  echo "FAIL: bottoken is not set"
-  exit 1
-else
-  echo "bottoken is set (not visible)"
-fi
+require_var TELEGRAM_BOT_TOKEN
+require_var TELEGRAM_CHAT_ID
+warn_var BASIC_AUTH_USERNAME
+warn_var BASIC_AUTH_PASSWORD
 
-if [ "x" == "x$chatid" ]; then
-  echo "FAIL: chatid is not set"
-  exit 2
-else
-  echo "chatid is $chatid"
-fi
-
-sed -i s/botToken/"$bottoken"/ flaskAlert.py
-sed -i s/xchatIDx/"$chatid"/ flaskAlert.py
-sed -i s/XXXUSERNAME/"$username"/ flaskAlert.py
-sed -i s/XXXPASSWORD/"$password"/ flaskAlert.py
-
-/usr/bin/gunicorn -w 4 -b 0.0.0.0:9119 flaskAlert:app
+echo "Config OK. Starting gunicorn…"
+exec gunicorn -w 4 -b 0.0.0.0:9119 wsgi:app

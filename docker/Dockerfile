@@ -1,17 +1,15 @@
-FROM alpine:3.7
+FROM python:3.11-slim
 
 LABEL maintainer="Carlos Augusto Malucelli <camalucelli@gmail.com>"
 
-WORKDIR /alertmanager-webhook-telegram
+WORKDIR /app
 
-RUN apk update \
-                && apk add py-pip bash gcc python-dev musl-dev libffi-dev openssl-dev unzip \
-                && rm -rf /var/cache/apk/* \
-                && wget https://github.com/nopp/alertmanager-webhook-telegram-python/archive/master.zip \
-                && unzip -j master.zip  \
-                && pip install -r requirements.txt \
-                && chmod +x run.sh
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app/ ./app/
+COPY wsgi.py .
 
 EXPOSE 9119
 
-ENTRYPOINT ["./run.sh"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9119", "wsgi:app"]
